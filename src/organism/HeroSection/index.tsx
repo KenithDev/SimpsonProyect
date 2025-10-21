@@ -1,7 +1,6 @@
 import React from 'react';
 import Text from '../../atoms/Text';
 import Image from '../../atoms/Image';
-import donut from '../../assets/images/donut.png'; // Asegúrate que esta ruta es correcta
 
 const HeroSection: React.FC = () => {
   return (
@@ -10,7 +9,7 @@ const HeroSection: React.FC = () => {
       className="bg-(--simpsons-teal-bg) min-h-screen flex flex-col items-center justify-center p-8 text-center"
     >
       <div className="mb-8 animate-float">
-        <Image src={donut} alt="Dona de Los Simpsons" className="w-48 md:w-64 h-auto drop-shadow-2xl" />
+        <Image src="/donut.svg" alt="Dona de Los Simpsons" className="w-48 md:w-64 h-auto drop-shadow-2xl" />
       </div>
       <div className="z-10">
         <Text as="h1" className="text-6xl md:text-7xl font-simpsons text-(--simpsons-white) drop-shadow-lg">

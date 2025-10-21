@@ -8,15 +8,16 @@
 /* Definimos nuestras variables globales */
 :root {
   /* Paleta de Colores - Los Simpsons */
-  --color-simpsons-blue: #016919;
-  --color-simpsons-yellow: #ffdb0f;
+  --color-simpsons-blue: #169D96;
+  --color-simpsons-yellow: #FFAC2E;
   --color-simpsons-yellow-light: #fff580;
   --color-simpsons-text: #2d2c2f;
   --color-simpsons-pink: #f465b5;
-  --color-simpsons-teal-bg: #1b9c85;
+  --color-simpsons-teal-bg: #169D96;
   --color-simpsons-teal-dark: #147a6a;
   --color-simpsons-sky: #7ec8e3;
   --color-simpsons-white: #ffffff;
+  --color-simpsons-border: #794F10;
   
   /* Aliases para uso fácil en componentes */
   --simpsons-blue: var(--color-simpsons-blue);
@@ -28,14 +29,48 @@
   --simpsons-teal-dark: var(--color-simpsons-teal-dark);
   --simpsons-sky: var(--color-simpsons-sky);
   --simpsons-white: var(--color-simpsons-white);
+  --simpsons-border: var(--color-simpsons-border);
 
   /* Familia de Fuente */
-  --font-simpsons: 'Akbar', sans-serif;
+  --font-simpsons: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', cursive, sans-serif;
+  --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Estilos base del body */
 body {
   background-color: var(--color-simpsons-teal-bg);
   color: var(--color-simpsons-text);
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body);
+}
+
+/* Animaciones globales */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    filter: drop-shadow(0 0 10px var(--simpsons-yellow));
+  }
+  50% { 
+    filter: drop-shadow(0 0 20px var(--simpsons-yellow));
+  }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s ease-in-out infinite;
 }

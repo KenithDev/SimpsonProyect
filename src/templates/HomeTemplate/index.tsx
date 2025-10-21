@@ -21,8 +21,14 @@ const HomePageTemplate: React.FC<HomePageTemplateProps> = ({
         <CardsSection />
         <ChatbotSection />
       </main>
-      <footer className="bg-(--simpsons-yellow) text-(--simpsons-text) text-center p-4 font-sans">
-        <p>Donutmind puede cometer errores, dale un vistazo a la documentación.</p>
+      <footer className="bg-(--simpsons-yellow) text-(--simpsons-text) text-center py-6 px-4 
+                         border-t-6 border-(--simpsons-border) shadow-inner">
+        <p className="font-simpsons text-lg mb-2">
+          🍩 Donutmind - Tu compañero para encontrar episodios de Los Simpsons
+        </p>
+        <p className="text-sm opacity-70">
+          DonutMind puede cometer errores. Siempre verifica la información importante.
+        </p>
       </footer>
     </div>
   );
