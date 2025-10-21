@@ -1,0 +1,41 @@
+@import "tailwindcss";
+/* Declaramos nuestra fuente local */
+/* @font-face {
+  font-family: 'Akbar';
+  src: url('./assets/fonts/akbar.ttf') format('truetype');
+} */
+
+/* Definimos nuestras variables globales */
+:root {
+  /* Paleta de Colores - Los Simpsons */
+  --color-simpsons-blue: #016919;
+  --color-simpsons-yellow: #ffdb0f;
+  --color-simpsons-yellow-light: #fff580;
+  --color-simpsons-text: #2d2c2f;
+  --color-simpsons-pink: #f465b5;
+  --color-simpsons-teal-bg: #1b9c85;
+  --color-simpsons-teal-dark: #147a6a;
+  --color-simpsons-sky: #7ec8e3;
+  --color-simpsons-white: #ffffff;
+  
+  /* Aliases para uso fácil en componentes */
+  --simpsons-blue: var(--color-simpsons-blue);
+  --simpsons-yellow: var(--color-simpsons-yellow);
+  --simpsons-yellow-light: var(--color-simpsons-yellow-light);
+  --simpsons-text: var(--color-simpsons-text);
+  --simpsons-pink: var(--color-simpsons-pink);
+  --simpsons-teal-bg: var(--color-simpsons-teal-bg);
+  --simpsons-teal-dark: var(--color-simpsons-teal-dark);
+  --simpsons-sky: var(--color-simpsons-sky);
+  --simpsons-white: var(--color-simpsons-white);
+
+  /* Familia de Fuente */
+  --font-simpsons: 'Akbar', sans-serif;
+}
+
+/* Estilos base del body */
+body {
+  background-color: var(--color-simpsons-teal-bg);
+  color: var(--color-simpsons-text);
+  font-family: system-ui, -apple-system, sans-serif;
+}
