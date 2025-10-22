@@ -43,8 +43,8 @@ const Header: React.FC<HeaderProps> = ({ navLinks }) => {
                 style={{ animationDelay: `${index * 0.1}s` }}
                 className="relative px-4 md:px-6 py-2 md:py-2.5 
                            rounded-full font-simpsons text-base md:text-lg 
-                           text-(--simpsons-white) [text-shadow:3px_3px_0_rgb(121_79_16)] 
-                           bg-(--simpsons-yellow)/10
+                           text-(--simpsons-white) [text-shadow:3px_3px_0_rgb(0_000_00)] 
+                           bg-(--simpsons-violet)/10
                            hover:bg-(--simpsons-violet) hover:text-(--simpsons-white)
                            transition-all duration-300 
                            transform hover:scale-105 hover:-translate-y-0.5

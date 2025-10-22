@@ -8,35 +8,15 @@
 export interface Character {
   id: number;
   name: string;
-  normalized_name?: string;
+  portrait_path?: string;
+  occupation?: string;
+  age?: number | null;
+  status?: string;
+  phrases?: string[];
   gender?: string;
+  birthdate?: string | null;
 }
 
-// ============================================
-// Episode Types
-// ============================================
-export interface Episode {
-  id: number;
-  name: string;
-  season?: number;
-  episode?: number;
-  air_date?: string;
-  description?: string;
-  rating?: number;
-  image_url?: string;
-  thumbnail_url?: string;
-}
-
-// ============================================
-// Product Types
-// ============================================
-export interface Product {
-  id: number;
-  name: string;
-  description?: string;
-  price?: number;
-  image?: string;
-}
 
 // ============================================
 // API Response Types

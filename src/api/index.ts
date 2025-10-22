@@ -12,8 +12,6 @@ export { default as apiClient } from './config/axios.config';
 // Exportar todos los tipos
 export type {
   Character,
-  Episode,
-  Product,
   ApiResponse,
   ApiError,
   PaginationParams,
@@ -24,20 +22,6 @@ export type {
 
 // Exportar todos los hooks
 export {
-  // Character hooks
   useCharacters,
-  useCharacter,
-  useSearchCharacters,
-  
-  // Episode hooks
-  useEpisodes,
-  useEpisode,
-  useSearchEpisodes,
-  useEpisodesBySeason,
-  
-  // Product hooks
-  useProducts,
-  useProduct,
-  useSearchProducts,
-} from './hooks/useSimpsons';
+} from './hooks/useCharacter';
 
