@@ -16,7 +16,7 @@ const HomePageTemplate: React.FC<HomePageTemplateProps> = ({
   return (
     <div className="min-h-screen font-sans">
       <Header siteTitle={siteTitle} navLinks={navLinks} />
-      <main>
+      <main className="pt-24 md:pt-28">
         <HeroSection />
         <CardsSection />
         <ChatbotSection />

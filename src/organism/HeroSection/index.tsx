@@ -11,11 +11,11 @@ const HeroSection: React.FC = () => {
       <div className="mb-8 animate-float">
         <Image src="/donut.svg" alt="Dona de Los Simpsons" className="w-48 md:w-64 h-auto drop-shadow-2xl" />
       </div>
-      <div className="z-10">
+      <div className="z-10 [text-shadow:3px_3px_0_rgb(121_79_16)]">
         <Text as="h1" className="text-6xl md:text-7xl font-simpsons text-(--simpsons-white) drop-shadow-lg">
           QUÉ VEMOS HOY?
         </Text>
-        <Text as="p" className="text-xl text-(--simpsons-text) mt-4">
+        <Text as="p" className="text-xl text-(--simpsons-white) mt-4 [text-shadow:3px_3px_0_rgb(121_79_16)]">
           Bienvenido a <span className="font-simpsons text-2xl text-(--simpsons-yellow)">DONUTMIND</span>
         </Text>
       </div>

@@ -1,9 +1,13 @@
 @import "tailwindcss";
-/* Declaramos nuestra fuente local */
-/* @font-face {
-  font-family: 'Akbar';
-  src: url('./assets/fonts/akbar.ttf') format('truetype');
-} */
+
+/* Declaramos la fuente Kavoon */
+@font-face {
+  font-family: 'Kavoon';
+  src: url('/fonts/Kavoon/Kavoon-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* Definimos nuestras variables globales */
 :root {
@@ -18,6 +22,8 @@
   --color-simpsons-sky: #7ec8e3;
   --color-simpsons-white: #ffffff;
   --color-simpsons-border: #794F10;
+  --color-simpsons-violet:#7B3683 ;
+  --color-simpsons-black: #000000;
   
   /* Aliases para uso fácil en componentes */
   --simpsons-blue: var(--color-simpsons-blue);
@@ -30,17 +36,24 @@
   --simpsons-sky: var(--color-simpsons-sky);
   --simpsons-white: var(--color-simpsons-white);
   --simpsons-border: var(--color-simpsons-border);
-
+  --simpsons-violet: var(--color-simpsons-violet);
+  --simpsons-black: var(--color-simpsons-black);
+  
   /* Familia de Fuente */
-  --font-simpsons: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', cursive, sans-serif;
-  --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-simpsons: 'Kavoon', 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', cursive, sans-serif;
+  --font-body: 'Kavoon', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Estilos base del body */
 body {
   background-color: var(--color-simpsons-teal-bg);
   color: var(--color-simpsons-text);
-  font-family: var(--font-body);
+  font-family: 'Kavoon', var(--font-body);
+}
+
+/* Asegurar que todos los elementos usen Kavoon por defecto */
+* {
+  font-family: 'Kavoon', var(--font-body);
 }
 
 /* Animaciones globales */
