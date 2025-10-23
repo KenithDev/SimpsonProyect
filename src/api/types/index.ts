@@ -1,7 +1,3 @@
-/**
- * Tipos y interfaces para la API de Los Simpsons
- */
-
 // ============================================
 // Character Types
 // ============================================
@@ -16,22 +12,6 @@ export interface Character {
   gender?: string;
   birthdate?: string | null;
 }
-
-
-// ============================================
-// API Response Types
-// ============================================
-export type ApiResponse<T> = T;
-
-export interface PaginationParams {
-  page?: number;
-  limit?: number;
-}
-
-export interface SearchParams extends PaginationParams {
-  query?: string;
-}
-
 // ============================================
 // Error Types
 // ============================================
@@ -40,7 +20,6 @@ export interface ApiError {
   status?: number;
   code?: string;
 }
-
 // ============================================
 // Hook State Types
 // ============================================
@@ -49,7 +28,6 @@ export interface UseApiState<T> {
   loading: boolean;
   error: ApiError | null;
 }
-
 export interface UseApiReturn<T> extends UseApiState<T> {
   refetch: () => Promise<void>;
 }

@@ -6,7 +6,7 @@ class ApiClient {
 
   constructor() {
     this.instance = axios.create({
-      baseURL: import.meta.env.VITE_API_BASE_URL , // Usará la nueva URL
+      baseURL: import.meta.env.VITE_API_BASE_URL ,
       timeout: Number(import.meta.env.VITE_API_TIMEOUT) || 10000,
       headers: {
         'Content-Type': 'application/json',
@@ -18,7 +18,6 @@ class ApiClient {
     }
   }
 
-  // ... (tus interceptores setupInterceptors y handleError)
 
   public getInstance(): AxiosInstance {
     return this.instance;

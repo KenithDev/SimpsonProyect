@@ -2,11 +2,6 @@ import { useState, useEffect, useCallback } from 'react';
 import { simpsonsService } from '../services/simpsons.service';
 import type { Character, UseApiReturn, ApiError } from '../types';
 
-/**
- * ==========================================
- * CHARACTERS HOOKS
- * ==========================================
- */
 
 /**
  * Hook para obtener todos los personajes
@@ -37,6 +32,3 @@ export function useCharacters(): UseApiReturn<Character[]> {
 
   return { data, loading, error, refetch: fetchData };
 }
-
-// BORRA TODOS LOS DEMÁS HOOKS
-// (useCharacter, useSearchCharacters, useEpisodes, useEpisode, useProducts, etc.)

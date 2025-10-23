@@ -12,10 +12,7 @@ export { default as apiClient } from './config/axios.config';
 // Exportar todos los tipos
 export type {
   Character,
-  ApiResponse,
   ApiError,
-  PaginationParams,
-  SearchParams,
   UseApiState,
   UseApiReturn,
 } from './types';

@@ -1,32 +1,11 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo } from 'react';
 import Text from '../../atoms/Text';
 import { useCharacters } from '../../api/hooks/useCharacter';
 
-const DEFAULT_PAGE_SIZE = 6;
-const POPULAR_CHARACTERS_LIMIT = 50;
-
-function getWindowedPages(current: number, total: number, window = 2) {
-  const pages: (number | string)[] = [];
-  if (total <= 7) {
-    for (let i = 1; i <= total; i++) pages.push(i);
-    return pages;
-  }
-
-  const left = Math.max(2, current - window);
-  const right = Math.min(total - 1, current + window);
-
-  pages.push(1);
-  if (left > 2) pages.push('...');
-  for (let i = left; i <= right; i++) pages.push(i);
-  if (right < total - 1) pages.push('...');
-  pages.push(total);
-  return pages;
-}
+const POPULAR_CHARACTERS_LIMIT = 15;
 
 const CardsSection: React.FC = () => {
   const { data: personajes, loading, error } = useCharacters();
-  const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(DEFAULT_PAGE_SIZE);
 
   const personajesArray = useMemo(() => {
     if (!personajes || !Array.isArray(personajes)) return [];
@@ -34,17 +13,6 @@ const CardsSection: React.FC = () => {
   }, [personajes]);
 
   const totalItems = personajesArray.length;
-  const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
-
-  const currentItems = useMemo(() => {
-    if (personajesArray.length === 0) return [];
-    const start = (page - 1) * pageSize;
-    return personajesArray.slice(start, start + pageSize);
-  }, [personajesArray, page, pageSize]);
-
-  const goTo = (p: number) => setPage(Math.max(1, Math.min(totalPages, p)));
-  
-  useEffect(() => setPage(1), [pageSize]);
 
   if (loading) {
     return (
@@ -91,32 +59,15 @@ const CardsSection: React.FC = () => {
           Los personajes más icónicos de Springfield
         </p>
 
-        <div className="flex justify-between items-center mb-6">
-          <div>
-            <Text as="h3" className="text-lg font-medium text-(--simpsons-white)">
-              {totalItems} personajes | Página {page} de {totalPages}
-            </Text>
-          </div>
-          <div className="flex items-center gap-2">
-            <label className="text-sm text-(--simpsons-white) font-semibold">Por página:</label>
-            <select
-              value={pageSize}
-              onChange={(e) => setPageSize(Number(e.target.value))}
-              className="px-3 py-2 rounded-lg border-2 border-(--simpsons-yellow) bg-(--simpsons-white) text-(--simpsons-text) font-semibold cursor-pointer hover:bg-(--simpsons-yellow) transition-colors"
-            >
-              <option value={6}>6</option>
-              <option value={9}>9</option>
-              <option value={12}>12</option>
-            </select>
-          </div>
-        </div>
+        <Text as="h3" className="text-lg font-medium text-(--simpsons-white) mb-8">
+          {totalItems} personajes populares de Springfield
+        </Text>
 
         {totalItems === 0 ? (
           <p className="text-(--simpsons-white) text-lg">No hay personajes disponibles.</p>
         ) : (
-          <>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {currentItems.map((personaje) => {
+              {personajesArray.map((personaje) => {
           
   
                 
@@ -180,46 +131,6 @@ const CardsSection: React.FC = () => {
                 );
               })}
             </div>
-
-            {/* Paginación */}
-            <div className="flex items-center justify-center gap-3 mt-10">
-              <button
-                onClick={() => goTo(page - 1)}
-                disabled={page === 1}
-                className="px-6 py-3 rounded-full bg-(--simpsons-yellow) hover:bg-(--simpsons-yellow-light) text-(--simpsons-text) font-simpsons text-lg disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95"
-              >
-                ← Anterior
-              </button>
-
-              <div className="space-x-2 flex items-center">
-                {getWindowedPages(page, totalPages).map((p, idx) => {
-                  if (p === '...') return <span key={`dots-${idx}`} className="px-2 text-(--simpsons-white) text-xl">…</span>;
-                  const pn = p as number;
-                  return (
-                    <button
-                      key={pn}
-                      onClick={() => goTo(pn)}
-                      className={`px-4 py-2 rounded-full font-bold text-lg transition-all ${
-                        pn === page 
-                          ? 'bg-(--simpsons-yellow) text-(--simpsons-text) shadow-lg scale-110' 
-                          : 'bg-(--simpsons-white)/80 text-(--simpsons-text) hover:bg-(--simpsons-white) hover:scale-105'
-                      }`}
-                    >
-                      {pn}
-                    </button>
-                  );
-                })}
-              </div>
-
-              <button
-                onClick={() => goTo(page + 1)}
-                disabled={page === totalPages}
-                className="px-6 py-3 rounded-full bg-(--simpsons-yellow) hover:bg-(--simpsons-yellow-light) text-(--simpsons-text) font-simpsons text-lg disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95"
-              >
-                Siguiente →
-              </button>
-            </div>
-          </>
         )}
       </div>
     </section>
